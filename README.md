@@ -1,6 +1,6 @@
 # Qight Chat
 
-A command-line chat application built in Rust, utilizing the Qight library for secure, decentralized messaging over relays. It supports encrypted message sending and receiving with public/private key pairs.
+A command-line chat application built in Rust, utilizing the  <a href="https://www.github.com/idorocodes/pharaohdb"> Qight </a>. library for secure, decentralized messaging over relays. It supports encrypted message sending and receiving with public/private key pairs.
 
 ## Features
 
@@ -8,7 +8,7 @@ A command-line chat application built in Rust, utilizing the Qight library for s
 - **Relay-Based Communication**: Connects to a relay server for message exchange.
 - **Command-Line Interface**: Simple CLI with commands for setup, connection, and messaging.
 - **Asynchronous Operations**: Built with Tokio for non-blocking I/O.
-- **User Management**: Handles username and key generation/storage in a local database.
+- **User Management**: Handles username and key generation/storage in a <a href="https://www.github.com/idorocodes/pharaohdb"> PharaohDb</a>.
 
 ## Prerequisites
 
