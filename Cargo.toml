@@ -1,0 +1,30 @@
+[package]
+name = "qightchat"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "qightchat"
+path = "src/main.rs"
+
+[dependencies]
+color-eyre = "0.6.3"
+crossterm = "0.29.0"
+ratatui = "0.30.0"
+clap = { version = "4.4", features = ["derive"] }
+tokio = { version = "1.30", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+pharaohdb ={ git = "https://github.com/idorocodes/pharaohdb"}
+qight = { git = "https://github.com/idorocodes/qight"}
+anyhow = "1.0"
+uuid = { version = "1.5", features = ["v4", "serde"] }
+chrono = "0.4"
+hex = "0.4.3"
+colored = "2.1"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+dashmap = "5.5"
+mdns-sd = "0.19.0"
+serde_json = "1.0.149"
+
+[dev-dependencies]
