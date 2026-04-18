@@ -19,7 +19,7 @@ A command-line chat application built in Rust, utilizing the  <a href="https://w
 
 1. Clone the repository:
    ```
-   git clone <repository-url>
+   git clone https://github.com/idorocodes/qight_chat
    cd qight_chat
    ```
 
