@@ -13,7 +13,7 @@ pub struct User {
     key: String,
 }
 
-fn setup_db(user_name: String) -> Result<(), DbErrors> {
+pub fn setup_db(user_name: String) -> Result<(), DbErrors> {
     let db_name = "qight_chat_user_db";
     let secret_key = "ouythbliojuy78t7rv";
 
@@ -44,7 +44,7 @@ fn setup_db(user_name: String) -> Result<(), DbErrors> {
     Ok(())
 }
 
-fn check_user(user_name: String) -> (bool, String, String) {
+pub fn check_user(user_name: String) -> (bool, String, String) {
     if !Path::new("qight_chat_user_db").is_dir() {
         println!("No database dectected, creating db");
         setup_db(user_name.clone()).unwrap();
