@@ -1,6 +1,6 @@
 # Qight Chat
 
-A command-line chat application built in Rust, utilizing the  <a href="https://www.github.com/idorocodes/pharaohdb"> Qight </a>. library for secure, decentralized messaging over relays. It supports encrypted message sending and receiving with public/private key pairs.
+A command-line chat application built in Rust, utilizing the  <a href="https://www.github.com/idorocodes/qight"> Qight </a>. library for secure, decentralized messaging over relays. It supports encrypted message sending and receiving with public/private key pairs.
 
 ## Features
 
