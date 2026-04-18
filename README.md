@@ -54,13 +54,6 @@ Launch the application and follow the prompts. Use commands to interact with the
 4. Send messages with `/send Hello, world!`.
 5. Incoming messages will be displayed automatically.
 
-## Dependencies
-
-- `crossterm`: For terminal styling and input handling.
-- `tokio`: For asynchronous runtime.
-- `qight`: Custom library for message envelopes and relay clients (assumed to be available).
-- `hex`: For hex encoding/decoding keys.
-
 ## Project Structure
 
 - `src/main.rs`: Main entry point with CLI logic.
@@ -73,4 +66,4 @@ Contributions are welcome. Please ensure code follows Rust best practices and in
 
 ## License
 
-[Specify license, e.g., MIT]
+[MIT]
