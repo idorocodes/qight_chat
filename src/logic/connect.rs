@@ -3,7 +3,9 @@ use mdns_sd::{ServiceDaemon, ServiceEvent};
 use qight::RelayClient;
 use std::net::{IpAddr, SocketAddr};
 
-async fn set_up_connection() -> Result<RelayClient> {
+pub async  fn set_up_connection() -> Result<RelayClient> {
+
+    println!("Connection Started");
     let mdns = ServiceDaemon::new()?;
     let service_type = "_qight._udp.local.";
     let receiver = mdns.browse(service_type)?;

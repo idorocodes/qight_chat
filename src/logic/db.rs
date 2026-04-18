@@ -10,7 +10,8 @@ use crate::get_key;
 #[derive(Serialize, Deserialize, Debug)]
 pub struct User {
     name: String,
-    key: String,
+    pubkey: String,
+    privkey : String,
 }
 
 pub fn setup_db(user_name: String) -> Result<(), DbErrors> {
@@ -21,7 +22,8 @@ pub fn setup_db(user_name: String) -> Result<(), DbErrors> {
 
     let users_table = TableBuilder::new("users")
         .add_string_field("name", false)
-        .add_string_field("key", true)
+        .add_string_field("pubkey", true)
+        .add_string_field("privkey", true)
         .build();
 
     if let Err(e) = db.create_table(users_table) {
@@ -30,13 +32,16 @@ pub fn setup_db(user_name: String) -> Result<(), DbErrors> {
         }
     }
 
-    let (sender_pub, _) = gen_keypair();
+    let (sender_pub, sender_priv) = gen_keypair();
 
-    let sender_key = get_key(sender_pub);
+    let sender_pub_key = get_key(sender_pub);
+    println!("Your Public Key : {}",sender_pub_key);
+    let sender_priv_key = get_key(sender_priv);
 
     let my_user = User {
         name: user_name,
-        key: sender_key,
+        pubkey: sender_pub_key,
+        privkey :sender_priv_key,
     };
 
     let user_id = db.insert("users", serde_json::to_value(my_user).unwrap())?;
@@ -44,7 +49,7 @@ pub fn setup_db(user_name: String) -> Result<(), DbErrors> {
     Ok(())
 }
 
-pub fn check_user(user_name: String) -> (bool, String, String) {
+pub fn check_user(user_name: String) -> (bool, String, String,String) {
     if !Path::new("qight_chat_user_db").is_dir() {
         println!("No database dectected, creating db");
         setup_db(user_name.clone()).unwrap();
@@ -58,10 +63,10 @@ pub fn check_user(user_name: String) -> (bool, String, String) {
     let existing = db.find_where("users", "name", &json!(user_name));
 
     if existing.is_empty() {
-        return (false, "".to_string(), "".to_string());
+        return (false, "".to_string(), "".to_string(),"".to_string());
     } else {
         let user: User =
             serde_json::from_value(existing[0].clone()).expect("Failed to deserialize");
-        return (true, user.name, user.key);
+        return (true, user.name, user.pubkey,user.privkey);
     }
 }
