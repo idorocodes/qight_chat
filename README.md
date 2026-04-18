@@ -1,4 +1,4 @@
-# README.md
+# Qight Chat
 
 A command-line chat application built in Rust, utilizing the Qight library for secure, decentralized messaging over relays. It supports encrypted message sending and receiving with public/private key pairs.
 
